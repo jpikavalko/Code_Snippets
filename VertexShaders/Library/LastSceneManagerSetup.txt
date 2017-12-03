@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/Squishy Sphere.unity
+- path: Assets/_Scenes/Unity_live.unity
   isLoaded: 1
   isActive: 1
