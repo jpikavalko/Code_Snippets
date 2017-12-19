@@ -70,7 +70,7 @@ Shader "Custom/Flag with normals"
 	sampler2D _SecondaryTex;
 	sampler2D _SecondaryNorm;
 
-	v2f vert(appdata_base v) {
+	v2f vert(appdata_full v) {
 		v2f o;
 		o.vertex = v.vertex;
 		o.pos = UnityObjectToClipPos(movement(v.vertex, v.texcoord));
