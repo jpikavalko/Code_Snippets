@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/Squishy Sphere.unity
+- path: Assets/_Scenes/WibblyWobbly.unity
   isLoaded: 1
   isActive: 1

@@ -45,6 +45,8 @@
 			{
 				//float2 val = _MyInt;
 				fixed4 col = tex2D(_MainTex, i.uv + float2(0, sin(i.vertex.x/50 + _Time[1]) /_MyInt));
+				//fixed4 col = tex2D(_MainTex, i.uv + float2(sin(i.vertex.x / 50 + _Time[1]) / _MyInt, sin(i.vertex.x / 50 + _Time[1]) / _MyInt));
+				//fixed4 col = tex2D(_MainTex, i.uv + float2(sin(i.vertex.y / 50 + _Time[1]) / _MyInt, sin(i.vertex.x / 50 + _Time[1]) / _MyInt));
 				// just invert the colors
 				//col = 1 - col;
 				return col;
