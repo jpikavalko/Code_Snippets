@@ -38,7 +38,7 @@ public class Oculars : MonoBehaviour {
 
         RaycastHit leftHit, rightHit;
 
-        if (Physics.Raycast(new Vector3(-0.5f, 1f, -1f), transform.rotation * Vector3.forward * 10f, out leftHit))
+        if (Physics.Raycast(transform.localPosition + new Vector3(-1, 1f, -1f), transform.rotation * Vector3.forward * 10f, out leftHit))
         {
             leftText.text = leftHit.collider.GetComponent<Renderer>().material.name.ToString();
             if (leftHit.collider.GetComponent<Renderer>().material.name == leftLens.GetComponent<Renderer>().material.name)
@@ -51,7 +51,7 @@ public class Oculars : MonoBehaviour {
         }
         else
             leftTargetCorrect = false;
-        if (Physics.Raycast(new Vector3(0.5f, 1f, -1f), transform.rotation * Vector3.forward * 10f, out rightHit))
+        if (Physics.Raycast(transform.localPosition + new Vector3(1f, 1f, -1f), transform.rotation * Vector3.forward * 10f, out rightHit))
         {
             rightText.text = rightHit.collider.GetComponent<Renderer>().material.name.ToString();
             if (rightHit.collider.GetComponent<Renderer>().material.name == rightLens.GetComponent<Renderer>().material.name)
@@ -71,8 +71,8 @@ public class Oculars : MonoBehaviour {
             Debug.Log("VOITTO!");
         }
         
-        Debug.DrawRay(transform.localPosition, transform.rotation * Vector3.forward * 10f, Color.red);
-        Debug.DrawRay(transform.localPosition + new Vector3(0.5f, 1f, -1f), transform.rotation * Vector3.forward * 10f, Color.red);
+        Debug.DrawRay(transform.localPosition + new Vector3(-1, 1f, -1f), transform.rotation * Vector3.forward * 10f, Color.red);
+        Debug.DrawRay(transform.localPosition + new Vector3(1f, 1f, -1f), transform.rotation * Vector3.forward * 10f, Color.red);
     }
 
     void DrawRays()
