@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Procedural Landmass Generation", "Procedural Landmass Generation.csproj", "{938A0924-9843-DEF3-9F92-59DEE60DB58B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Procedural Landmass Generation.Editor", "Procedural Landmass Generation.Editor.csproj", "{D2400DEB-27FF-3C01-6D0C-7112C2658501}"
