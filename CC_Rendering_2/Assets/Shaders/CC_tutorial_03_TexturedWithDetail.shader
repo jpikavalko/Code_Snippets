@@ -1,9 +1,10 @@
-﻿Shader "_Custom/CC_02_MysFirstShader"
+﻿Shader "_Custom/CC_03_Textured with detail"
 {
 	Properties
 	{
 		_Tint ("Tint", Color) = (1,1,1,1)
 		_MainTex ("Texture", 2D) = "white" {}
+		_DetailTex ("Detail Texture", 2D) = "gray" {}
 	}
 
 	SubShader
@@ -17,13 +18,14 @@
 				#include "UnityCG.cginc"
 
 				float4 _Tint;
-				sampler2D _MainTex;
-				float4 _MainTex_ST;
+				sampler2D _MainTex, _DetailTex;
+				float4 _MainTex_ST, _DetailTex_ST;
 
 				struct Interpolators
 				{
 					float4 position : SV_POSITION;
 					float2 uv : TEXCOORD0;
+					float2 uvDetail : TEXCOORD1;
 				};
 
 				struct VertexData {
@@ -36,13 +38,16 @@
 					Interpolators i;
 					i.position = UnityObjectToClipPos(v.position);
 					i.uv = TRANSFORM_TEX(v.uv, _MainTex);
+					i.uvDetail = TRANSFORM_TEX(v.uv, _DetailTex);
 					return i;
 				}
 
 				//FRAGMENT - COLORS
 				float4 MyFragmentProgram (Interpolators i) : SV_TARGET {
-					return tex2D(_MainTex, i.uv) * _Tint;//float4(i.uv, 1, 1); //float4(i.localPosition + 0.5, 1) * _Tint;
-				}
+					float4 color = tex2D(_MainTex, i.uv) * _Tint;
+					color *= tex2D(_DetailTex, i.uvDetail) * unity_ColorSpaceDouble;
+					return color;
+			}
 			ENDCG
 		}
 	}
