@@ -41,10 +41,9 @@
 
 				//FRAGMENT - COLORS
 				float4 MyFragmentProgram (Interpolators i) : SV_TARGET {
-					return tex2D(_MainTex, i.uv) * _Tint;//float4(i.uv, 1, 1); //float4(i.localPosition + 0.5, 1) * _Tint;
+					return tex2D(_MainTex, i.uv) * _Tint;
 				}
 			ENDCG
 		}
 	}
-	//Jäin kohtaan 4. Texturing
 }
