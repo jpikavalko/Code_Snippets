@@ -50,7 +50,10 @@ Shader "Shaders 102/Displacement"
 		float2 disp = tex2D(_DisplaceTex, i.uv).xy;
 		disp = ((disp * 2) - 1) * _Magnitude;
 
-		float4 col = tex2D(_MainTex, i.uv + disp + float2(sin(i.vertex.x / 50 + _Time[1]), sin(i.vertex.y / 50 + _Time[1])));
+		float4 col = tex2D(_MainTex, i.uv + disp + float3(
+		sin(i.vertex.x / 50 + _Time[1]),
+		sin(i.vertex.y / 50 + _Time[1]),
+		sin(i.vertex.z / 50 + _Time[1])));
 		return col;
 	}
 		ENDCG
